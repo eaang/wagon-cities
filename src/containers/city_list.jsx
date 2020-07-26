@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import setCities from '../actions/index';
+import { setCities } from '../actions/index';
 import City from './city';
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 
 class CityList extends Component {
   componentWillMount() {
-    // TODO: dispatch an action to load flats!
+    // TODO: dispatch an action to load cities!
     this.props.setCities();
   }
 
@@ -27,8 +27,8 @@ class CityList extends Component {
     const { cities } = this.props;
     return (
       <div className="cities">
-        {cities.map((city) => {
-          return <City info={city} key={city.name} />;
+        {cities.map((city, index) => {
+          return <City city={city} key={city.name} tabIndex={index} />;
         })}
       </div>
     );

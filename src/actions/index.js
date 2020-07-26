@@ -9,4 +9,11 @@ const setCities = () => {
   };
 };
 
-export { setCities as default };
+const selectCity = (city) => {
+  return {
+    type: 'CITY_SELECTED',
+    payload: city
+  };
+};
+
+export { setCities, selectCity as default };
